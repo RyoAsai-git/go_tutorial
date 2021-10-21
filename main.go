@@ -300,20 +300,43 @@ func outer() {
 //     })
 // }
 
-func Later() func(string) string {
-    var store string
-    return func(next string) string {
-        s := store
-        store = next
-        return s
+// func Later() func(string) string {
+//     var store string
+//     return func(next string) string {
+//         s := store
+//         store = next
+//         return s
+//     }
+// }
+
+// func main() {
+//     f := Later()
+//     fmt.Println(f("Hello"))
+//     fmt.Println(f("My"))
+//     fmt.Println(f("name"))
+//     fmt.Println(f("is"))
+//     fmt.Println(f("Golang"))
+// }
+
+
+func integers() func() int {
+    //iは実行され続ける限り、iは保持され続ける
+    i := 0
+    return func() int {
+        i++
+        return i
     }
 }
 
 func main() {
-    f := Later()
-    fmt.Println(f("Hello"))
-    fmt.Println(f("My"))
-    fmt.Println(f("name"))
-    fmt.Println(f("is"))
-    fmt.Println(f("Golang"))
+    ints := integers()
+    fmt.Println(ints())
+    fmt.Println(ints())
+    fmt.Println(ints())
+    fmt.Println(ints())
+
+    otherints := integers()
+    fmt.Println(otherints())
+    fmt.Println(otherints())
+    fmt.Println(otherints())
 }
