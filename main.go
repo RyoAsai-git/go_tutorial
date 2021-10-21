@@ -3,7 +3,7 @@ package main
 import (
     "fmt"
     // "time"
-    "strconv"
+    // "strconv"
 )
 
 var i5 int = 500
@@ -189,7 +189,7 @@ func outer() {
 
 // }
 
-func main() {
+// func main() {
     // var i int = 1
     // fl64 := float64(i)
     // fmt.Println(fl64)
@@ -214,15 +214,76 @@ func main() {
     // fmt.Printf("i = %T\n", i)
 
 
-    var i2 int = 200
-    s2 := strconv.Itoa(i2)
-    fmt.Printf("s2 = %T\n", s2)
+//     var i2 int = 200
+//     s2 := strconv.Itoa(i2)
+//     fmt.Printf("s2 = %T\n", s2)
 
-    var h string = "hello world"
-    b := []byte(h)
-    fmt.Println(b)
+//     var h string = "hello world"
+//     b := []byte(h)
+//     fmt.Println(b)
 
-    h2 := string(b)
-    fmt.Println(h2)
+//     h2 := string(b)
+//     fmt.Println(h2)
+
+// }
+
+// const pi = 3.14
+
+// // const (
+// //     URL = "http://xxx.com",
+// //     SiteName = "test"
+// // )
+
+// // const (
+// //     A = 1
+// //     B
+// //     C
+// //     D = "A"
+// //     E
+// //     F
+// // )
+
+// const (
+//     c0 = iota
+//     c1
+//     c2
+// )
+
+// func main() {
+//     fmt.Println(pi)
+    
+//     // fmt.Println(URL)
+//     // fmt.Println(SiteName)
+
+//     // fmt.Println(A, B, C, D, E, F)
+
+//     fmt.Println(c0, c1, c2)
+
+// }
+
+//関数を返す関数
+func ReturnFunc() func() {
+    return func() {
+        fmt.Println("I'm function")
+    }
+}
+
+func main() {
+
+    //無名関数
+    // f := func(x, y int) int {
+    //     return x + y
+    // }
+    // i := f(1, 2)
+    // fmt.Println(i)
+
+    // i2 := func(x, y int) int {
+    //     return x + y
+    // }(1, 2)
+
+    // fmt.Println(i2)
+
+    f := ReturnFunc()
+    f()
 
 }
