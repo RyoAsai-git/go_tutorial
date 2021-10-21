@@ -103,23 +103,35 @@ func outer() {
     
 // }
 
+// func main() {
+//     var s string = "hello golang"
+//     fmt.Println(s)
+
+//     fmt.Printf("%T\n", s)
+
+//     var si string = "300"
+//     fmt.Println(si)
+
+//     fmt.Println(`test
+//     test
+//         test
+//     `)
+
+//     fmt.Println("\"")
+//     fmt.Println(`""`)
+
+//     fmt.Println(s[0]) //72 byte型
+//     fmt.Println(string(s[0])) //h
+// }
+
 func main() {
-    var s string = "hello golang"
-    fmt.Println(s)
+    byteA := []byte{72, 73}
+    fmt.Println(byteA)
 
-    fmt.Printf("%T\n", s)
+    fmt.Println(string(byteA))
 
-    var si string = "300"
-    fmt.Println(si)
+    c := []byte("HI")
+    fmt.Println(c)
 
-    fmt.Println(`test
-    test
-        test
-    `)
-
-    fmt.Println("\"")
-    fmt.Println(`""`)
-
-    fmt.Println(s[0]) //72 byte型
-    fmt.Println(string(s[0])) //h
+    fmt.Println(string(c))
 }
