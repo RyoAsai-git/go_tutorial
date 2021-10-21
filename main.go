@@ -262,28 +262,40 @@ func outer() {
 // }
 
 //関数を返す関数
-func ReturnFunc() func() {
-    return func() {
-        fmt.Println("I'm function")
-    }
+// func ReturnFunc() func() {
+//     return func() {
+//         fmt.Println("I'm function")
+//     }
+// }
+
+// func main() {
+
+//     //無名関数
+//     // f := func(x, y int) int {
+//     //     return x + y
+//     // }
+//     // i := f(1, 2)
+//     // fmt.Println(i)
+
+//     // i2 := func(x, y int) int {
+//     //     return x + y
+//     // }(1, 2)
+
+//     // fmt.Println(i2)
+
+//     f := ReturnFunc()
+//     f()
+
+// }
+
+
+//関数を引数にとる関数
+func Callfunction(f func()) {
+    f()
 }
 
 func main() {
-
-    //無名関数
-    // f := func(x, y int) int {
-    //     return x + y
-    // }
-    // i := f(1, 2)
-    // fmt.Println(i)
-
-    // i2 := func(x, y int) int {
-    //     return x + y
-    // }(1, 2)
-
-    // fmt.Println(i2)
-
-    f := ReturnFunc()
-    f()
-
+    Callfunction(func() {
+        fmt.Println("I'm a function")
+    })
 }
