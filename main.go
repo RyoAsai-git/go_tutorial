@@ -3,6 +3,7 @@ package main
 import (
     "fmt"
     // "time"
+    "strconv"
 )
 
 var i5 int = 500
@@ -169,21 +170,59 @@ func outer() {
 
 // }
 
+// func main() {
+//     var x interface{}
+//     fmt.Println(x)
+
+//     x = 1
+//     fmt.Println(x)
+
+
+//     x = 3.14
+//     fmt.Println(x)
+
+//     x = [3]int{1, 2, 3}
+//     fmt.Println(x)
+
+//     // x = 2
+//     // fmt.Println(x + 3)
+
+// }
+
 func main() {
-    var x interface{}
-    fmt.Println(x)
+    // var i int = 1
+    // fl64 := float64(i)
+    // fmt.Println(fl64)
 
-    x = 1
-    fmt.Println(x)
+    // fmt.Printf("i = %T\n", i)
+    // fmt.Printf("fl64 = %T\n", fl64)
+
+    // i2 := int(fl64)
+    // fmt.Printf("i2 = %T\n", i2)
+
+    // fl := 10.5
+    // i3 := int(fl)
+    // fmt.Printf("i3 = %T\n", i3)
+    // fmt.Println(i3)
+
+    // var s string = "100"
+    // fmt.Printf("s = %T\n", s)
+
+    // i, _ := strconv.Atoi(s)
+    // fmt.Println(i)
+
+    // fmt.Printf("i = %T\n", i)
 
 
-    x = 3.14
-    fmt.Println(x)
+    var i2 int = 200
+    s2 := strconv.Itoa(i2)
+    fmt.Printf("s2 = %T\n", s2)
 
-    x = [3]int{1, 2, 3}
-    fmt.Println(x)
+    var h string = "hello world"
+    b := []byte(h)
+    fmt.Println(b)
 
-    // x = 2
-    // fmt.Println(x + 3)
+    h2 := string(b)
+    fmt.Println(h2)
 
 }
