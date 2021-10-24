@@ -606,3 +606,22 @@ import (
 
 //     fmt.Println(len(m4))
 // }
+
+func main() {
+    m := map[string]int{
+        "apple" : 100,
+        "banana" : 200,
+    }
+
+    for k, v := range m {
+        fmt.Println(k, v)
+    }
+
+    for _, v := range m {
+        fmt.Println(v)
+    }
+
+    for k := range m {
+        fmt.Println(k)
+    }
+}
