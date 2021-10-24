@@ -529,23 +529,80 @@ import (
 
 // }
 
-func main() {
-    sl := []string{"A", "B", "C"}
-    fmt.Println(sl)
+// func main() {
+//     sl := []string{"A", "B", "C"}
+//     fmt.Println(sl)
 
-    // for i, v := range sl {
-    //     fmt.Println(i, v)
-    // }
+//     // for i, v := range sl {
+//     //     fmt.Println(i, v)
+//     // }
 
-    // for _, v := range sl {
-    //     fmt.Println(v)
-    // }
+//     // for _, v := range sl {
+//     //     fmt.Println(v)
+//     // }
 
-    // for i := range sl {
-    //     fmt.Println(i)
-    // }
+//     // for i := range sl {
+//     //     fmt.Println(i)
+//     // }
 
-    for i := 0; i < len(sl); i++ {
-        fmt.Println(sl[i])
-    }
-}
+//     for i := 0; i < len(sl); i++ {
+//         fmt.Println(sl[i])
+//     }
+// }
+
+// func Sum(s ...int) int {
+//     n := 0
+//     for _, v := range s {
+//         n += v
+//     }
+//     return n
+// }
+
+// func main() {
+//     fmt.Println(Sum(1, 2, 3))
+//     fmt.Println(Sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+
+//     fmt.Println(Sum())
+
+//     sl := []int{1, 2, 3}
+//     fmt.Println(Sum(sl...))
+// }
+
+// func main() {
+//     var m = map[string]int{"A": 100, "B": 200}
+//     fmt.Println(m)
+
+//     m2 := map[string]int{"A": 100, "B": 200}
+//     fmt.Println(m2)
+
+//     m3 := map[int]string{
+//         1: "A",
+//         2: "B",
+//     }
+//     fmt.Println(m3)
+
+//     m4 := make(map[int]string)
+//     fmt.Println(m4)
+
+//     m4[1] = "JAPAN"
+//     m4[2] = "USA"
+//     fmt.Println(m4)
+
+//     fmt.Println(m["A"])
+//     fmt.Println(m4[2])
+//     fmt.Println(m4[3])
+
+//     s, ok := m4[1]
+//     fmt.Println(s, ok)
+
+//     m4[2] = "US"
+//     fmt.Println(m4)
+
+//     m4[3] = "CHINA"
+//     fmt.Println(m4)
+
+//     delete(m4, 3)
+//     fmt.Println(m4)
+
+//     fmt.Println(len(m4))
+// }
