@@ -503,3 +503,28 @@ import (
 //     fmt.Println(len(sl3))
 //     fmt.Println(cap(sl3))
 // }
+
+func main() {
+    // sl := []int{100, 200}
+    // sl2 := sl
+    // //参照型特有の性質
+
+    // sl2[0] = 1000
+    // fmt.Println(sl)
+    // //同じsl[0]も更新されてしまう
+
+    // var i int = 10
+    // i2 := i
+    // i2 = 100
+    // fmt.Println(i)
+    // fmt.Println(i2)
+
+    sl := []int{1, 2, 3, 4, 5}
+    sl2 := make([]int, 5, 10)
+    fmt.Println(sl2)
+    n := copy(sl2, sl)
+    //nはコピーに成功した数
+
+    fmt.Println(n, sl2)
+
+}
