@@ -810,47 +810,130 @@ import (
 //     }
 // }
 
-func Double(i int) {
-    i = i * 2
+// func Double(i int) {
+//     i = i * 2
+// }
+
+// func Doublev2(i *int) {
+//     *i = *i * 2
+// }
+
+// func Doublev3(s []int) {
+//     for i, v :=  range s {
+//         s[i] = v * 2
+//     }
+// }
+
+// func main() {
+//     var n int = 100
+//     fmt.Println(n)
+
+//     fmt.Println(&n) //メモリアドレス
+
+//     Double(n)
+//     fmt.Println(n)
+
+//     var p *int = &n
+//     fmt.Println(p)
+//     fmt.Println(*p)
+
+//     // *p = 300 //pと同じアドレスを指している
+//     // fmt.Println(n)
+
+//     // n = 200
+//     // fmt.Println(*p)
+
+//     Doublev2(&n)
+//     fmt.Println(n)
+
+//     Doublev2(p)
+//     fmt.Println(*p)
+
+//     //参照型は元々参照渡しの機能を持っている
+//     var sl []int = []int{1, 2, 3}
+//     Doublev3(sl)
+//     fmt.Println(sl)
+// }
+
+// type User struct {
+//     Name string
+//     Age int
+//     // X, Y int
+// }
+
+
+// func UpdateUser(user User) {
+//     user.Name = "A"
+//     user.Age = 1000
+// }
+
+// func UpdateUser2(user *User) {
+//     user.Name = "A"
+//     user.Age = 1000
+// }
+
+// func main() {
+//     var user1 User
+//     fmt.Println(user1)
+//     user1.Name = "user1"
+//     user1.Age = 10
+//     fmt.Println(user1)
+
+//     user2 := User{}
+//     fmt.Println(user2)
+//     user2.Name = "User2"
+//     user2.Age = 20
+//     fmt.Println(user2)
+
+//     user3 := User{Name: "User3", Age: 30}
+//     fmt.Println(user3)
+
+//     user4 := User{"User4", 40}
+//     fmt.Println(user4)
+
+//     // user5 := User{30, "User5"}
+//     // fmt.Println(user5) //error
+
+//     user6 := User{Name: "user6"}
+//     fmt.Println(user6)
+
+//     user7 := new(User) //構造体のポインタ型を返す
+//     fmt.Println(user7)
+
+//     user8 := &User{} //user7と同じ こちらの方が頻度高い
+//     fmt.Println(user8)
+
+//     UpdateUser(user1)
+//     UpdateUser2(user8) //参照渡し
+//     fmt.Println(user1, user8)
+
+
+// }
+
+type User struct {
+    Name string
+    Age int
 }
 
-func Doublev2(i *int) {
-    *i = *i * 2
+func (u User) SayName() {
+    fmt.Println(u.Name)
 }
 
-func Doublev3(s []int) {
-    for i, v :=  range s {
-        s[i] = v * 2
-    }
+func (u User) SetName(name string) {
+    u.Name = name
+}
+
+func (u *User) SetName2(name string) {
+    u.Name = name
 }
 
 func main() {
-    var n int = 100
-    fmt.Println(n)
+    user1 := User{Name: "User1"}
+    user1.SayName()
 
-    fmt.Println(&n) //メモリアドレス
+    user1.SetName("A")
+    user1.SayName()
 
-    Double(n)
-    fmt.Println(n)
-
-    var p *int = &n
-    fmt.Println(p)
-    fmt.Println(*p)
-
-    // *p = 300 //pと同じアドレスを指している
-    // fmt.Println(n)
-
-    // n = 200
-    // fmt.Println(*p)
-
-    Doublev2(&n)
-    fmt.Println(n)
-
-    Doublev2(p)
-    fmt.Println(*p)
-
-    //参照型は元々参照渡しの機能を持っている
-    var sl []int = []int{1, 2, 3}
-    Doublev3(sl)
-    fmt.Println(sl)
+    user1.SetName2("A")
+    user1.SayName()
 }
