@@ -739,13 +739,118 @@ import (
 //     time.Sleep(3 * time.Millisecond)
 // }
 
-func main() {
-    ch1 := make(chan int, 3)
-    ch1 <- 1
-    ch1 <- 2
-    ch1 <- 3
-    close(ch1)
-    for i := range ch1 {
-        fmt.Println(i)
+// func main() {
+//     ch1 := make(chan int, 3)
+//     ch1 <- 1
+//     ch1 <- 2
+//     ch1 <- 3
+//     close(ch1)
+//     for i := range ch1 {
+//         fmt.Println(i)
+//     }
+// }
+
+// func main() {
+//     ch1 := make(chan int, 2)
+//     ch2 := make(chan string, 2)
+
+//     ch2 <- "A"
+//     ch1 <- 1
+//     ch2 <- "B"
+//     ch1 <- 2
+//     // v1 := <- ch1
+//     // v2 := <- ch2
+//     // fmt.Println(v1)
+//     // fmt.Println(v2)
+
+//     select {
+//     case v1 := <- ch1:
+//         fmt.Println(v1 + 1000)
+//     case v2 := <- ch2:
+//         fmt.Println(v2 + "!?")
+//     default:
+//         fmt.Println("どちらでもない")
+//     }
+
+//     ch3 := make(chan int)
+//     ch4 := make(chan int)
+//     ch5 := make(chan int)
+
+//     //receiver
+//     go func() {
+//         for {
+//             i := <- ch3
+//             ch4 <- i * 2
+//         }
+//     }()
+
+//     go func() {
+//         for {
+//             i2 := <- ch4
+//             ch5 <- i2 - 1
+//         }
+//     }()
+
+//     n := 0
+//     L:
+//     for {
+//         select {
+//         case ch3 <- n:
+//             n++
+//         case i3 := <- ch5:
+//             fmt.Println("received", i3)
+//         default:
+//             if n > 100 {
+//                 break L
+//             }
+//         }
+//         if n > 100 {
+//             break
+//         }
+//     }
+// }
+
+func Double(i int) {
+    i = i * 2
+}
+
+func Doublev2(i *int) {
+    *i = *i * 2
+}
+
+func Doublev3(s []int) {
+    for i, v :=  range s {
+        s[i] = v * 2
     }
+}
+
+func main() {
+    var n int = 100
+    fmt.Println(n)
+
+    fmt.Println(&n) //メモリアドレス
+
+    Double(n)
+    fmt.Println(n)
+
+    var p *int = &n
+    fmt.Println(p)
+    fmt.Println(*p)
+
+    // *p = 300 //pと同じアドレスを指している
+    // fmt.Println(n)
+
+    // n = 200
+    // fmt.Println(*p)
+
+    Doublev2(&n)
+    fmt.Println(n)
+
+    Doublev2(p)
+    fmt.Println(*p)
+
+    //参照型は元々参照渡しの機能を持っている
+    var sl []int = []int{1, 2, 3}
+    Doublev3(sl)
+    fmt.Println(sl)
 }
