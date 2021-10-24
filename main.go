@@ -936,4 +936,8 @@ func main() {
 
     user1.SetName2("A")
     user1.SayName()
+
+    user2 := &User{Name: "user2"}
+    user2.SetName2("B")
+    user2.SayName()
 }
