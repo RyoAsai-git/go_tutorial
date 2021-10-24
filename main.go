@@ -5,6 +5,7 @@ import (
     // "time"
     // "strconv"
     // "os"
+    "time"
 )
 
 var i5 int = 500
@@ -398,14 +399,32 @@ func outer() {
 //     file.Write([]byte("Hello"))
 // }
 
-func main() {
-    defer func() {
-        if x := recover(); x != nil {
-            fmt.Println(x)
-        }
-    }()
+// func main() {
+//     defer func() {
+//         if x := recover(); x != nil {
+//             fmt.Println(x)
+//         }
+//     }()
 
-    panic("runtime error")
-    //runtimeエラーを強制発生
-    fmt.Println("Start")
+//     panic("runtime error")
+//     //runtimeエラーを強制発生
+//     fmt.Println("Start")
+// }
+
+//並行処理
+func sub() {
+    for {
+        fmt.Println("Sub Loop")
+        time.Sleep(100 * time.Millisecond)
+    }
+}
+
+func main() {
+    go sub()
+    go sub()
+
+    for {
+        fmt.Println("Main Loop")
+        time.Sleep(200 * time.Millisecond)
+    }
 }
