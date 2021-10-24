@@ -5,7 +5,7 @@ import (
     // "time"
     // "strconv"
     // "os"
-    "time"
+    // "time"
 )
 
 var i5 int = 500
@@ -412,19 +412,31 @@ func outer() {
 // }
 
 //並行処理
-func sub() {
-    for {
-        fmt.Println("Sub Loop")
-        time.Sleep(100 * time.Millisecond)
-    }
+// func sub() {
+//     for {
+//         fmt.Println("Sub Loop")
+//         time.Sleep(100 * time.Millisecond)
+//     }
+// }
+
+// func main() {
+//     go sub()
+//     go sub()
+
+//     for {
+//         fmt.Println("Main Loop")
+//         time.Sleep(200 * time.Millisecond)
+//     }
+// }
+
+func init() {
+    fmt.Println("init")
+}
+
+func init() {
+    fmt.Println("init2")
 }
 
 func main() {
-    go sub()
-    go sub()
-
-    for {
-        fmt.Println("Main Loop")
-        time.Sleep(200 * time.Millisecond)
-    }
+    fmt.Println("Main")
 }
