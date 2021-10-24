@@ -4,6 +4,7 @@ import (
     "fmt"
     // "time"
     // "strconv"
+    "os"
 )
 
 var i5 int = 500
@@ -319,24 +320,80 @@ func outer() {
 // }
 
 
-func integers() func() int {
-    //iは実行され続ける限り、iは保持され続ける
-    i := 0
-    return func() int {
-        i++
-        return i
-    }
+// func integers() func() int {
+//     //iは実行され続ける限り、iは保持され続ける
+//     i := 0
+//     return func() int {
+//         i++
+//         return i
+//     }
+// }
+
+// func main() {
+//     ints := integers()
+//     fmt.Println(ints())
+//     fmt.Println(ints())
+//     fmt.Println(ints())
+//     fmt.Println(ints())
+
+//     otherints := integers()
+//     fmt.Println(otherints())
+//     fmt.Println(otherints())
+//     fmt.Println(otherints())
+// }
+
+
+// func main () {
+//     a := 0
+//     // a = 2
+//     if a == 2 {
+//         fmt.Println("two")
+//     } else if a == 1 {
+//         fmt.Println("one")
+//     } else {
+//         fmt.Println("i don't know")
+//     }
+
+//     //簡易文付きif文
+//     if b := 100; b == 100 {
+//         fmt.Println("one hundred")
+//     }
+
+//     x := 0
+//     if x := 2; true {
+//         fmt.Println(x) //2
+//     }
+//     fmt.Println(x) //0
+// }
+
+//defer 
+func TestDefer() {
+    defer fmt.Println("end")
+    fmt.Println("start")
+}
+
+func RunDefer() {
+    defer fmt.Println("1")
+    defer fmt.Println("2")
+    defer fmt.Println("3")
 }
 
 func main() {
-    ints := integers()
-    fmt.Println(ints())
-    fmt.Println(ints())
-    fmt.Println(ints())
-    fmt.Println(ints())
+    TestDefer()
 
-    otherints := integers()
-    fmt.Println(otherints())
-    fmt.Println(otherints())
-    fmt.Println(otherints())
+    // defer func() {
+    //     fmt.Println("1")
+    //     fmt.Println("2")
+    //     fmt.Println("3")
+    // }()
+
+    RunDefer()
+    
+    file, err := os.Create("test.txt")
+    if err != nil {
+        fmt.Println(err)
+    }
+    defer file.Close()
+
+    file.Write([]byte("Hello"))
 }
