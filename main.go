@@ -674,28 +674,67 @@ import (
 //     //バッファサイズを超えた
 // }
 
-func receiver(c chan int) {
+// func receiver(c chan int) {
+//     for {
+//         i := <-c
+//         fmt.Println(i)
+//     }
+// }
+
+// func main() {
+//     ch1 := make(chan int)
+//     // fmt.Println(<-ch1) //deadlock
+
+//     ch2 := make(chan int)
+
+//     //並行処理 チャネルにデータが入るのを待っている
+//     go receiver(ch1)
+//     go receiver(ch2)
+
+//     i := 0
+//     for i < 100 {
+//         ch1 <- i //チャネルに送ったらreceiverが出力される
+//         ch2 <- i
+//         time.Sleep(50 * time.Millisecond)
+//         i++
+//     }
+// }
+
+func receiver(name string, ch chan int) {
     for {
-        i := <-c
-        fmt.Println(i)
+        i, ok := <-ch
+        if !ok {
+            break
+        }
+        fmt.Println(name, i)
     }
+    fmt.Println(name + "END")
 }
 
 func main() {
-    ch1 := make(chan int)
-    // fmt.Println(<-ch1) //deadlock
+    ch1 := make(chan int, 2)
 
-    ch2 := make(chan int)
+    // ch1 <- 1
+    // close(ch1)
 
-    //並行処理 チャネルにデータが入るのを待っている
-    go receiver(ch1)
-    go receiver(ch2)
+    // // ch1 <- 1
+    // // fmt.Println(<-ch1)
+
+    // i, ok := <- ch1
+    // fmt.Println(i, ok)
+
+    // i2, ok := <- ch1
+    // fmt.Println(i2, ok)
+
+    go receiver("1.goroutine", ch1)
+    go receiver("2.goroutine", ch1)
+    go receiver("3.goroutine", ch1)
 
     i := 0
     for i < 100 {
-        ch1 <- i //チャネルに送ったらreceiverが出力される
-        ch2 <- i
-        time.Sleep(50 * time.Millisecond)
+        ch1 <- i
         i++
     }
+    close(ch1)
+    time.Sleep(3 * time.Millisecond)
 }
