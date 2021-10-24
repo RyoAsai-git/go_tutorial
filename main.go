@@ -4,7 +4,7 @@ import (
     "fmt"
     // "time"
     // "strconv"
-    "os"
+    // "os"
 )
 
 var i5 int = 500
@@ -367,33 +367,45 @@ func outer() {
 // }
 
 //defer 
-func TestDefer() {
-    defer fmt.Println("end")
-    fmt.Println("start")
-}
+// func TestDefer() {
+//     defer fmt.Println("end")
+//     fmt.Println("start")
+// }
 
-func RunDefer() {
-    defer fmt.Println("1")
-    defer fmt.Println("2")
-    defer fmt.Println("3")
-}
+// func RunDefer() {
+//     defer fmt.Println("1")
+//     defer fmt.Println("2")
+//     defer fmt.Println("3")
+// }
+
+// func main() {
+//     TestDefer()
+
+//     // defer func() {
+//     //     fmt.Println("1")
+//     //     fmt.Println("2")
+//     //     fmt.Println("3")
+//     // }()
+
+//     RunDefer()
+    
+//     file, err := os.Create("test.txt")
+//     if err != nil {
+//         fmt.Println(err)
+//     }
+//     defer file.Close()
+
+//     file.Write([]byte("Hello"))
+// }
 
 func main() {
-    TestDefer()
+    defer func() {
+        if x := recover(); x != nil {
+            fmt.Println(x)
+        }
+    }()
 
-    // defer func() {
-    //     fmt.Println("1")
-    //     fmt.Println("2")
-    //     fmt.Println("3")
-    // }()
-
-    RunDefer()
-    
-    file, err := os.Create("test.txt")
-    if err != nil {
-        fmt.Println(err)
-    }
-    defer file.Close()
-
-    file.Write([]byte("Hello"))
+    panic("runtime error")
+    //runtimeエラーを強制発生
+    fmt.Println("Start")
 }
