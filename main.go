@@ -8,12 +8,12 @@ import (
     // "time"
 )
 
-var i5 int = 500
+// var i5 int = 500
 
-func outer() {
-    var s4 string = "outer"
-    fmt.Println(s4)
-}
+// func outer() {
+//     var s4 string = "outer"
+//     fmt.Println(s4)
+// }
 
 // func main() {
 //     fmt.Println("Hello World")
@@ -429,14 +429,50 @@ func outer() {
 //     }
 // }
 
-func init() {
-    fmt.Println("init")
-}
+// func init() {
+//     fmt.Println("init")
+// }
 
-func init() {
-    fmt.Println("init2")
-}
+// func init() {
+//     fmt.Println("init2")
+// }
+
+// func main() {
+//     fmt.Println("Main")
+// }
+
+//スライス
 
 func main() {
-    fmt.Println("Main")
+    var sl []int
+    fmt.Println(sl)
+
+    var sl2 []int = []int{100, 200}
+    fmt.Println(sl2)
+
+    sl3 := []string{"A", "B"}
+    fmt.Println(sl3)
+
+    sl4 := make([]int, 5)
+    fmt.Println(sl4)
+
+    sl2[0] = 1000
+    fmt.Println(sl2)
+
+    sl5 := []int{1, 2, 3, 4, 5}
+    fmt.Println(sl5)
+
+    fmt.Println(sl5[0])
+
+    fmt.Println(sl5[2:4])
+
+    fmt.Println(sl5[:2])
+
+    fmt.Println(sl5[2:])
+
+    fmt.Println(sl5[:])
+
+    fmt.Println(sl5[len(sl5) - 1])
+    
+    fmt.Println(sl5[1:len(sl5) -1])
 }
