@@ -6,6 +6,7 @@ import (
     // "strconv"
     // "os"
     // "time"
+    "go_tutorial/alib"
 )
 
 // var i5 int = 500
@@ -910,34 +911,47 @@ import (
 
 // }
 
-type User struct {
-    Name string
-    Age int
-}
+// type User struct {
+//     Name string
+//     Age int
+// }
 
-func (u User) SayName() {
-    fmt.Println(u.Name)
-}
+// func (u User) SayName() {
+//     fmt.Println(u.Name)
+// }
 
-func (u User) SetName(name string) {
-    u.Name = name
-}
+// func (u User) SetName(name string) {
+//     u.Name = name
+// }
 
-func (u *User) SetName2(name string) {
-    u.Name = name
+// func (u *User) SetName2(name string) {
+//     u.Name = name
+// }
+
+// func main() {
+//     user1 := User{Name: "User1"}
+//     user1.SayName()
+
+//     user1.SetName("A")
+//     user1.SayName()
+
+//     user1.SetName2("A")
+//     user1.SayName()
+
+//     user2 := &User{Name: "user2"}
+//     user2.SetName2("B")
+//     user2.SayName()
+// }
+
+func IsOne(i int) bool {
+    if i == 1 {
+        return true
+    } else {
+        return false;
+    }
 }
 
 func main() {
-    user1 := User{Name: "User1"}
-    user1.SayName()
-
-    user1.SetName("A")
-    user1.SayName()
-
-    user1.SetName2("A")
-    user1.SayName()
-
-    user2 := &User{Name: "user2"}
-    user2.SetName2("B")
-    user2.SayName()
+    fmt.Println(IsOne(1))
+    fmt.Println(IsOne(0))
 }
