@@ -44,20 +44,39 @@ func main() {
     //     log.Fatalln(err)
     // }
 
-    cmd := "SELECT * FROM person WHERE age = ?"
+    // cmd := "SELECT * FROM person WHERE age = ?"
 
-    row := Db.QueryRow(cmd, 25)
-    var p Person
-    err := row.Scan(&p.Name, &p.Age)
+    // row := Db.QueryRow(cmd, 25)
+    // var p Person
+    // err := row.Scan(&p.Name, &p.Age)
 
-    if err != nil {
-        if err == sql.ErrNoRows {
-            log.Println("No row")
-        } else {
+    // if err != nil {
+    //     if err == sql.ErrNoRows {
+    //         log.Println("No row")
+    //     } else {
+    //         log.Println(err)
+    //     }
+    // }
+    // fmt.Println(p.Name, p.Age)
+
+    cmd := "SELECT * FROM person"
+    rows, _ := Db.Query(cmd)
+
+    defer rows.Close()
+    var pp []Person
+    
+    for rows.Next() {
+        var p Person
+        err := rows.Scan(&p.Name, &p.Age)
+
+        if err != nil {
             log.Println(err)
         }
+        pp = append(pp, p)
     }
-    fmt.Println(p.Name, p.Age)
 
+    for _, p := range pp {
+        fmt.Println(p.Name, p.Age)
+    }
 
 }
