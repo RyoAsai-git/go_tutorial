@@ -1,4 +1,4 @@
-drop table persons;
+-- drop table persons;
 
 create table persons (
     name     varchar(255),
