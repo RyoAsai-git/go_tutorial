@@ -21,15 +21,15 @@ func main() {
 
     defer Db.Close()
 
-    // cmd := `CREATE TABLE IF NOT EXISTS person(
-    //             name STRING,
-    //             age  INT)`
+    cmd := `CREATE TABLE IF NOT EXISTS person(
+                name STRING,
+                age  INT)`
 
-    // _, err := Db.Exec(cmd)
+    _, err := Db.Exec(cmd)
 
-    // if err != nil {
-    //     log.Fatalln(err)
-    // }
+    if err != nil {
+        log.Fatalln(err)
+    }
 
     // cmd := "INSERT INTO person (name, age) VALUES (?, ?)"
     // _, err := Db.Exec(cmd, "tarou", 20)
@@ -79,10 +79,10 @@ func main() {
     //     fmt.Println(p.Name, p.Age)
     // }
 
-    cmd := "DELETE FROM person WHERE name = ?"
-    _, err := Db.Exec(cmd, "hanako")
-    if err != nil {
-        log.Println(err)
-    }
+    // cmd := "DELETE FROM person WHERE name = ?"
+    // _, err := Db.Exec(cmd, "hanako")
+    // if err != nil {
+    //     log.Println(err)
+    // }
 
 }
