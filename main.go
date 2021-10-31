@@ -17,6 +17,7 @@ type Person struct {
 }
 
 func main() {
+    //userとdbをここで設定
     Db, err := sql.Open("postgres", "user=test_user dbname=testdb password=password sslmode=disable")
     if err != nil {
         log.Println(err)
