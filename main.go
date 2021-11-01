@@ -32,37 +32,53 @@
 //     }
 // }
 
+// package main
+
+// import (
+//     "fmt"
+
+//     "gopkg.in/go-ini/ini.v1"
+// )
+
+// type ConfigLite struct {
+//     Port      int
+//     DbName    string
+//     SQLDriver string
+// }
+
+// var Config ConfigLite
+
+// func init() {
+//     cfg, _ := ini.Load("config.ini")
+
+//     Config = ConfigLite{
+//         //MustIntは数値型を読み込む 引数は初期値
+//         Port: cfg.Section("web").Key("port").MustInt(8080),
+
+//         DbName: cfg.Section("db").Key("name").MustString("example.sql"),
+
+//         SQLDriver: cfg.Section("db").Key("driver").String(),
+//     }
+// }
+
+// func main() {
+//     fmt.Println("Port = %v\n", Config.Port)
+//     fmt.Println("DbName = %v\n", Config.DbName, Config.DbName)
+//     fmt.Println("SQLDriver = %v\n", Config.SQLDriver)
+// }
+
 package main
 
 import (
     "fmt"
 
-    "gopkg.in/go-ini/ini.v1"
+    "github.com/google/uuid"
 )
 
-type ConfigLite struct {
-    Port      int
-    DbName    string
-    SQLDriver string
-}
-
-var Config ConfigLite
-
-func init() {
-    cfg, _ := ini.Load("config.ini")
-
-    Config = ConfigLite{
-        //MustIntは数値型を読み込む 引数は初期値
-        Port: cfg.Section("web").Key("port").MustInt(8080),
-
-        DbName: cfg.Section("db").Key("name").MustString("example.sql"),
-
-        SQLDriver: cfg.Section("db").Key("driver").String(),
-    }
-}
-
 func main() {
-    fmt.Println("Port = %v\n", Config.Port)
-    fmt.Println("DbName = %v\n", Config.DbName, Config.DbName)
-    fmt.Println("SQLDriver = %v\n", Config.SQLDriver)
+    uuidObj, _ := uuid.NewUUID()
+    fmt.Println(" ", uuidObj.String())
+
+    uuidObj2, _ := uuid.NewRandom()
+    fmt.Println(" ", uuidObj2.String())
 }
