@@ -71,7 +71,6 @@ package main
 
 import (
     "fmt"
-
     "github.com/google/uuid"
 )
 
@@ -81,4 +80,7 @@ func main() {
 
     uuidObj2, _ := uuid.NewRandom()
     fmt.Println(" ", uuidObj2.String())
+
+    uuidObj3, _ := uuid.NewRandom()
+    fmt.Println(" ", uuidObj3.String())
 }
