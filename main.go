@@ -67,20 +67,20 @@
 //     fmt.Println("SQLDriver = %v\n", Config.SQLDriver)
 // }
 
-package main
+// package main
 
-import (
-    "fmt"
-    "github.com/google/uuid"
-)
+// import (
+//     "fmt"
+//     "github.com/google/uuid"
+// )
 
-func main() {
-    uuidObj, _ := uuid.NewUUID()
-    fmt.Println(" ", uuidObj.String())
+// func main() {
+//     uuidObj, _ := uuid.NewUUID()
+//     fmt.Println(" ", uuidObj.String())
 
-    uuidObj2, _ := uuid.NewRandom()
-    fmt.Println(" ", uuidObj2.String())
+//     uuidObj2, _ := uuid.NewRandom()
+//     fmt.Println(" ", uuidObj2.String())
 
-    uuidObj3, _ := uuid.NewRandom()
-    fmt.Println(" ", uuidObj3.String())
-}
+//     uuidObj3, _ := uuid.NewRandom()
+//     fmt.Println(" ", uuidObj3.String())
+// }
